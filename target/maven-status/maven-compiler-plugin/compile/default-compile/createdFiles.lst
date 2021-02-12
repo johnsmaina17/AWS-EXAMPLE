@@ -1,0 +1,6 @@
+com\wasoko\tech\api\controller\MemberContoller.class
+com\wasoko\tech\api\StreamLambdaHandler.class
+com\wasoko\tech\api\Application.class
+com\wasoko\tech\api\model\TechMembers.class
+com\wasoko\tech\api\model\TechDataStore.class
+com\wasoko\tech\api\filter\CognitoIdentityFilter.class

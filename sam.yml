@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Wasoko Tech Talk - Feb 12th 2021
+
+Globals:
+  Function:
+    Timeout: 20
+
+Resources:
+  CiFileApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.wasoko.tech.api.StreamLambdaHandler::handleRequest
+      Runtime: java11
+      CodeUri: target/Awsserverless-1.0-SNAPSHOT-lambda-package.zip
+      MemorySize: 1512
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 60
+      Events:
+        FilesController:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+
+Outputs:
+  CiFileApi:
+    Description: Wasoko Tech Talk - Feb 12th 2021
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod'
+    Export:
+      Name: aws-wasoko-tech-talk-2-john
